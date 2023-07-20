@@ -20,8 +20,9 @@ module.exports.saveTask = (req, res) => {
 
 module.exports.updateTask = (req, res) => {
   const { id } = req.params;
-  const { task } = req.body;
-  TaskModel.findByIdAndUpdate(id, { task })
+  const { task,values } = req.body;
+  
+  TaskModel.findByIdAndUpdate(id, { task ,values})
     .then(() => res.send("Updated Sucessfully"))
     .catch((err) => {
       console.log(err);
